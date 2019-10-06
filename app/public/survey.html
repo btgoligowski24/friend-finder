@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Survey</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"
+        integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <div class="container">
+        <div class="row">
+            <div class="col col-12">
+                <h2>Survey Questions</h2>
+                <hr>
+                <form>
+                    <h4>About You</h4>
+                    <div class="form-group">
+                        <label for="inputName">Name (Required):</label>
+                        <input type="text" class="form-control" id="inputName" placeholder="Enter your name">
+                    </div>
+                    <div class="form-group">
+                        <label for="photoLink">Link to Photo Image (Required):</label>
+                        <input type="url" class="form-control" id="photoLink" placeholder="URL to photo">
+                    </div>
+                </form>
+                <hr class="my-4">
+                <form>
+                    <div class="form-group">
+                        <h4>Question 1</h4>
+                        <label for="formControlSelect1">Being physically active is important to me</label>
+                        <select class="form-control col-3" id="formControlSelect1">
+                            <option selected value="">Choose level of agreement</option>
+                            <option value="1">1 (Strongly Disagree)</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5 (Strongly Agree)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <h4>Question 2</h4>
+                        <label for="formControlSelect2">Being honest is more important than someones feelings</label>
+                        <select class="form-control col-3" id="formControlSelect2">
+                            <option selected value="">Choose level of agreement</option>
+                            <option value="1">1 (Strongly Disagree)</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5 (Strongly Agree)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <h4>Question 3</h4>
+                        <label for="formControlSelect3">I consider myself a social person</label>
+                        <select class="form-control col-3" id="formControlSelect3">
+                            <option selected value="">Choose level of agreement</option>
+                            <option value="1">1 (Strongly Disagree)</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5 (Strongly Agree)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <h4>Question 4</h4>
+                        <label for="formControlSelect4">I enjoy playing tabletop games</label>
+                        <select class="form-control col-3" id="formControlSelect4">
+                            <option selected value="">Choose level of agreement</option>
+                            <option value="1">1 (Strongly Disagree)</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5 (Strongly Agree)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <h4>Question 5</h4>
+                        <label for="formControlSelect5">I enjoy playing computer games</label>
+                        <select class="form-control col-3" id="formControlSelect5">
+                            <option selected value="">Choose level of agreement</option>
+                            <option value="1">1 (Strongly Disagree)</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5 (Strongly Agree)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <h4>Question 6</h4>
+                        <label for="formControlSelect6">I like being outside</label>
+                        <select class="form-control col-3" id="formControlSelect6">
+                            <option selected value="">Choose level of agreement</option>
+                            <option value="1">1 (Strongly Disagree)</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5 (Strongly Agree)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <h4>Question 7</h4>
+                        <label for="formControlSelect7">I like a cooler climate</label>
+                        <select class="form-control col-3" id="formControlSelect7">
+                            <option selected value="">Choose level of agreement</option>
+                            <option value="1">1 (Strongly Disagree)</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5 (Strongly Agree)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <h4>Question 8</h4>
+                        <label for="formControlSelect8">I like having different seasons throughout the year</label>
+                        <select class="form-control col-3" id="formControlSelect8">
+                            <option selected value="">Choose level of agreement</option>
+                            <option value="1">1 (Strongly Disagree)</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5 (Strongly Agree)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <h4>Question 9</h4>
+                        <label for="formControlSelect9">I enjoy learning</label>
+                        <select class="form-control col-3" id="formControlSelect9">
+                            <option selected value="">Choose level of agreement</option>
+                            <option value="1">1 (Strongly Disagree)</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5 (Strongly Agree)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <h4>Question 10</h4>
+                        <label for="formControlSelect10">I like hearing different perspectives on things</label>
+                        <select class="form-control col-3" id="formControlSelect10">
+                            <option selected value="">Choose level of agreement</option>
+                            <option value="1">1 (Strongly Disagree)</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5 (Strongly Agree)</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-lg btn-primary btn-block"><i class="fas fa-check-circle"></i> Submit</button>
+                </form>
+                <hr>
+                <footer>
+                    <p><a href="/api/friends" title="Link to friends list in json format">API Friends List</a> | <a
+                            href="https://github.com/btgoligowski24/friend-finder" target="_blank"
+                            title="My GitHub repository for this project">GitHub Repo</a></p>
+                </footer>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
