@@ -7,7 +7,7 @@ This app is an intro to express.js. It introduces me to GET and POST requests an
 The app is organized by files and within each file, by functions or flow. Each .js file has code specific to it's use case and within there, is organized by function. The .html files are organized by flow.
 
 ## How to Use the App
-1. Naviate to {webpage}
+1. Navigate to https://ancient-basin-69986.herokuapp.com/
 1. You have the following options:
     * Click a button go to a survey page that after filling out all the fields will match you with your most compatible friend, based on your answers.
     * Click a link to view the list of friends who have filled out the survey, in JSON format.
