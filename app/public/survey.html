@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"
         integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link rel="stylesheet" href="">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -164,7 +166,9 @@
                             <option value="5">5 (Strongly Agree)</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-lg btn-primary btn-block"><i class="fas fa-check-circle"></i> Submit</button>
+                    <button id="submit" type="submit" class="btn btn-lg btn-primary btn-block"><i
+                            class="fas fa-check-circle"></i>
+                        Submit</button>
                 </form>
                 <hr>
                 <footer>
@@ -175,6 +179,91 @@
             </div>
         </div>
     </div>
+
+    <div id="friendModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Best Match</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h5 id="matchedUserName"></h5>
+                    <img id="matchedUserPhoto" src="" alt="Matched Friend Image">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function validateInputs() {
+            let badInput = false;
+            let newFriend = {
+                name: $("#inputName").val().trim(),
+                photo: $("#photoLink").val().trim(),
+                scores: [$("#formControlSelect1").val(), $("#formControlSelect2").val(), $("#formControlSelect3")
+                    .val(), $("#formControlSelect4").val(), $("#formControlSelect5").val(), $(
+                        "#formControlSelect6")
+                    .val(), $("#formControlSelect7").val(), $("#formControlSelect8").val(), $(
+                        "#formControlSelect9")
+                    .val(), $("#formControlSelect10").val()
+                ]
+            };
+            if (newFriend.name === "" || newFriend.photo === "") {
+                alert("You must enter a name and photo URL!");
+                badInput = true;
+            } else if (checkAnswers(newFriend.scores)) {
+                alert("You must provide an answer for all questions");
+                badInput = true;
+            }
+            if (badInput) {
+                return false
+            }
+            submitData(newFriend);
+        }
+        $("#submit").on("click", validateInputs);
+
+        function checkAnswers(answers) {
+            for (val of answers) {
+                if (answers[val] === "") {
+                    return true
+                }
+            }
+            return false
+        }
+
+        function submitData(newFriendObj) {
+            let currentURL = window.location.origin;
+            $.post(currentURL + "/api/friends", newFriendObj,
+                function (data) {
+
+                    // Clear the form when submitting
+                    $("#inputName").val().trim();
+                    $("#photoLink").val().trim();
+                    $("#formControlSelect1").val();
+                    $("#formControlSelect2").val();
+                    $("#formControlSelect3").val();
+                    $("#formControlSelect4").val();
+                    $("#formControlSelect5").val();
+                    $("#formControlSelect6").val();
+                    $("#formControlSelect7").val();
+                    $("#formControlSelect8").val();
+                    $("#formControlSelect9").val();
+                    $("#formControlSelect10").val();
+
+                    $("#matchedUserName").text(data.name);
+                    $("#matchedUserPhoto").attr({
+                        src: data.photo
+                    });
+                    $("#friendModal").modal("toggle");
+                });
+        }
+    </script>
 </body>
 
 </html>
