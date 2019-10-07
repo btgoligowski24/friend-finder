@@ -12,6 +12,11 @@
     <title>Survey</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
@@ -20,8 +25,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"
         integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link rel="stylesheet" href="">
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -178,30 +182,33 @@
                 </footer>
             </div>
         </div>
-    </div>
 
-    <div id="friendModal" class="modal fade" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Best Match</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <h5 id="matchedUserName"></h5>
-                    <img id="matchedUserPhoto" src="" alt="Matched Friend Image">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- Modal Section -->
+        <div id="friendModal" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title font-weight-bold">Best Match</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h4 id="matchedUserName"></h4>
+                        <img id="matchedUserPhoto" src="" alt="Matched Friend Image">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
 
     <script>
-        function validateInputs() {
+        function validateInputs(event) {
+            event.preventDefault();
             let badInput = false;
             let newFriend = {
                 name: $("#inputName").val().trim(),
@@ -226,10 +233,9 @@
             }
             submitData(newFriend);
         }
-        $("#submit").on("click", validateInputs);
 
         function checkAnswers(answers) {
-            for (val of answers) {
+            for (val in answers) {
                 if (answers[val] === "") {
                     return true
                 }
@@ -243,18 +249,18 @@
                 function (data) {
 
                     // Clear the form when submitting
-                    $("#inputName").val().trim();
-                    $("#photoLink").val().trim();
-                    $("#formControlSelect1").val();
-                    $("#formControlSelect2").val();
-                    $("#formControlSelect3").val();
-                    $("#formControlSelect4").val();
-                    $("#formControlSelect5").val();
-                    $("#formControlSelect6").val();
-                    $("#formControlSelect7").val();
-                    $("#formControlSelect8").val();
-                    $("#formControlSelect9").val();
-                    $("#formControlSelect10").val();
+                    $("#inputName").val("");
+                    $("#photoLink").val("");
+                    $("#formControlSelect1").val("");
+                    $("#formControlSelect2").val("");
+                    $("#formControlSelect3").val("");
+                    $("#formControlSelect4").val("");
+                    $("#formControlSelect5").val("");
+                    $("#formControlSelect6").val("");
+                    $("#formControlSelect7").val("");
+                    $("#formControlSelect8").val("");
+                    $("#formControlSelect9").val("");
+                    $("#formControlSelect10").val("");
 
                     $("#matchedUserName").text(data.name);
                     $("#matchedUserPhoto").attr({
@@ -263,6 +269,8 @@
                     $("#friendModal").modal("toggle");
                 });
         }
+
+        $("#submit").on("click", validateInputs);
     </script>
 </body>
 

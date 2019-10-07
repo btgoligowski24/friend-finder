@@ -12,12 +12,10 @@ module.exports = function (app) {
         const newFriend = req.body;
         let matchedFriend;
 
-        console.log(newFriend);
-
-        for (obj of friends) {
+        for (obj in friends) {
             let sumDifference = 0;
-            for (val of friends[obj].scores) {
-                sumDifference += Math.abs(friends[obj].scores[val] - newFriend.scores[val]);
+            for (val in friends[obj].scores) {
+                sumDifference += Math.abs(parseInt(friends[obj].scores[val]) - parseInt(newFriend.scores[val]));
             }
             if (!matchedFriend) {
                 matchedFriend = friends[obj];
